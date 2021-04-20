@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title> hello </title>
+</head>
+
+<body>
+{{/*<p>hello {{ .Name }}</p>*/}}
+{{/*<p>年龄: {{ .Age }}</p>*/}}
+{{/*<p>性别: {{ .Gender }}</p>*/}}
+
+<p>u1</p>
+<p>hello {{ .u1.Name }}</p>
+<p>年龄: {{ .u1.Age }}</p>
+<p>性别: {{ .u1.Gender }}</p>
+
+<p>m1</p>
+<p>hello {{ .u1.Name }}</p>
+<p>年龄: {{ .u1.Age }}</p>
+<p>性别: {{ .u1.Gender }}</p>
+
+
+<hr>
+{{/*定义变量*/}}
+{{ $v1 := 100 }}
+{{ $age := .u1.Age }}
+
+
+<hr>
+{{/*条件判断*/}}
+{{ if $v1 }}
+{{ $v1 }}
+{{ else }}
+什么都没有
+{{ end }}
+
+
+<hr>
+{{/*条件判断*/}}
+{{ if lt .m1.age 22}}
+    好好上学
+{{ else }}
+    好好工作
+{{ end }}
+
+
+
+<hr>
+{{ range $idx, $hobby := .hobby }}
+    <p>{{ $idx}}--{{$hobby}}</p>
+{{ else }}
+    什么也没有
+{{ end }}
+
+
+<hr>
+{{ with .m1 }}
+<p>hello {{ .name }}</p>
+<p>年龄: {{ .age }}</p>
+<p>性别: {{ .gender }}</p>
+{{ end }}
+
+<hr>
+{{ index .hobby 2}}
+
+</body>
+</html>
